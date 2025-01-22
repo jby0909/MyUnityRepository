@@ -87,7 +87,9 @@ public class Player : MonoBehaviour
 
         if (collision.gameObject.tag == "Finish")
         {
-
+            GameObject theEnd = collision.gameObject.transform.Find("End").gameObject;
+            theEnd.SetActive(true);
+            Debug.Log("Game Clear!");
         }
     }
 
