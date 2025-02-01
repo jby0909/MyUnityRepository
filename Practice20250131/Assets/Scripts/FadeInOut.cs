@@ -5,21 +5,16 @@ using UnityEngine.UI;
 public class FadeInOut : MonoBehaviour
 {
     [SerializeField]
-    Text text;
+    Image panel;
 
-    [SerializeField]
-    [Range(0f,1f)]
-    float alpha = 0;
-    bool IsAdd = true;
-    Color color;
+    float alpha = 1;
+   
    
     void Start()
     {
-        color = text.GetComponent<Text>().color;
-        color.a = alpha;
        
 
-        //StartCoroutine("FadeIn");
+        StartCoroutine("FadeOut");
     }
 
     
@@ -27,34 +22,34 @@ public class FadeInOut : MonoBehaviour
 
     IEnumerator FadeIn()
     {
-        while(alpha <= 255 && alpha >= 0)
+        while(alpha <= 1.0f)
         {
-            if(alpha == 0)
-            {
-                IsAdd = true;
-                alpha++;
-            }
-            else if(alpha == 255)
-            {
-                IsAdd = false;
-                alpha--;
-            }
-            else if (IsAdd)
-            {
-                color.a = alpha;
-                alpha++;
-                
-            }
-            else if (!IsAdd)
-            {
-                color.a = alpha;
-                alpha--;
-                
-            }
-            yield return new WaitForSeconds(0.2f); 
-            
+            panel.color = new Color(145/255f, 27/255f, 30/255f, alpha);
+            alpha += 0.05f;
+            yield return new WaitForSeconds(0.1f);
         }
+        //if(alpha > 1.0f)
+        //{
+        //    StartCoroutine("FadeOut");
+        //}
+        
 
+
+    }
+
+    IEnumerator FadeOut()
+    {
+        while (alpha >= 0)
+        {
+            panel.color = new Color(0, 0, 0, alpha);
+            alpha -= 0.05f;
+            yield return new WaitForSeconds(0.1f);
+        }
+        //if (alpha < 0)
+        //{
+        //    StartCoroutine("FadeIn");
+        //}
+        
 
     }
 }
