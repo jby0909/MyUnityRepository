@@ -137,12 +137,13 @@ Create -> Audio -> AudioMixer를 통해 Audio Group을 생성
 
 
 <hr>
-### 유니티 레코더(Unity Recorder)
-유니티 내부에서 녹화하는 기능
-1. 설치
+
+### 유니티 레코더(Unity Recorder)      
+유니티 내부에서 녹화하는 기능      
+1. 설치   
   Package Manager -> Unity Registry -> Recorder
 
-2. 사용하기
+2. 사용하기   
    Window -> General -> Recorder -> Recorder Window
    |프로퍼티명|내용|
    |:-------------|:-------------------------------|
