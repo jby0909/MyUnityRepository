@@ -59,7 +59,7 @@ public class Sample : MonoBehaviour
 |sample2|content2|description2|
 |sample3|content3|description3|
 ||||
-<nr>
+<hr>
 왼쪽정렬 /오른쪽정렬/중앙정렬
 
 
