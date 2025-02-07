@@ -1,2 +1,28 @@
-# MyUnityRepository
- for study unity 6
+
+
+
+### 오디오 소스(Audio Source)
+-씬에서 오디오 클립(AudioClip)을 재생하는 도구   
+-재생을 하기 위해서는 오디오 리스너(Audio Listener)나 오디오 믹서(Audio Mixer)가 필요   
+-믹서는 따로 만들어야 하며, 오디오 리스너는 보통 메인 카메라에 붙어있음   
+
+
+##### Audio Source컴포넌트의 프로퍼티
+|프로퍼티명|내용|
+|:-------------|:-------------------------------|
+|Audio Resource|재생을 진행할 사운드 클립에 대한 등록|
+|Output|기본적으로는 오디오 리스너에 직접 출력됨(None) <br> 만약 만든 오디오 믹서가 있다면 그 믹서를 통해 출력함|
+|Mute|체크 시 음소거 처리|
+|Bypass Effects|오디오 소스에 적용되어 있는 필터 효과를 분리|
+|Bypass Listener Effect|리스너 효과 ON/OFF|
+|Bypass Reverb Zones|리버브 존 ON/OFF|
+|Play On Awake|해당 옵션을 체크했을 경우 씬이 실행되는 시점에 사운드 재생이 처리 됨 <br> 해당 기능 비활성화 시 스크립트를 통해 Play()명령을 진행해 사운드를 재생|
+|Loop|옵션 활성화 시 재생이 끝날 때 오디오 클립을 반복|
+|Priority|오디오 소스의 우선순위 <br> 0 = 최우선 <br> 128 = 기본 <br> 256 = 최하위|
+
+*리버브 존 : 오디오 리슨너의 위치에 따라 잔향 효과를 설정하는 도구
+
+
+
+
+
