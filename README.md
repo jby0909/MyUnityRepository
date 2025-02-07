@@ -54,9 +54,13 @@ public class Sample : MonoBehaviour
 
 
 |제목|내용|설명|
-|------|---|---|
+|:------|---:|:---:|
 |sample1|content1|description1|
 |sample2|content2|description2|
 |sample3|content3|description3|
+||||
+<nr>
+왼쪽정렬 /오른쪽정렬/중앙정렬
+
 
 
