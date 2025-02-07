@@ -8,6 +8,9 @@
 
 
 ##### Audio Source컴포넌트의 프로퍼티
+![캡처](https://github.com/user-attachments/assets/1976ef1b-49e9-4e68-a40b-d5f551d0fae1)
+
+
 |프로퍼티명|내용|
 |:-------------|:-------------------------------|
 |Audio Resource|재생을 진행할 사운드 클립에 대한 등록|
@@ -34,12 +37,63 @@
 |Spread|사운드가 퍼지는 각도(0~360) <br>	0 : 한 점에서 사운드가 나오는 방식 <br> 360 : 모든 방향으로 균일하게 퍼지는 방식|
 |Rolloff Mode|그래프 설정 <br> 1.로그 그래프 : 가까우면 사운드가 크고 멀수록 점점 빠르게 사운드가 작아짐 <br> 2.선형 그래프 : 거리에 따라 일정하게 사운드가 변화하는 구조 <br> 3.커스텀 그래프 : 직접 조절하는 영역|
 
+-----------------------------------------------------------------------------------------------------------------
+##### 실습 내용
+*Audio Source 연결하기   
+1)인스펙터에서 직접 연결하는경우 : public으로 선언
+```cs
+public AudioSource audioSourceBGM;
+```
+2)해당 스크립트를 컴포넌트로 가지고 있는 객체가 자체적으로 오디오 소스를 가지고 있는 경우
+```cs
+private AudioSource own_audioSource;
+
+void Start()
+{
+  own_audioSource = GetComponent<AudioSource>();
+}
+```
+3)Scene에서 찾아서 연결하는 경우 : GameObject.Find()는 씬에서 찾은 gameObject를 return.
+        GameObject이기 때문에 GetComponent<T>를 이어 작성함으로써 오브젝트가 가진 컴포넌트의 값을 return함
+        따라서 이 결과물은 AudioSource가 됨
+```cs
+public AudioSource audioSoundSFX;
+
+void Start()
+{
+  audioSoundSFX = GameObject.Find("SFX").GetComponent<AudioSource>();
+}
+```
 
 
+
+
+<hr>
 ### 오디오 믹서(Audio Mixer)
 오디오 소스에 대한 제어, 균형, 조정을 제공하는 도구
 
--믹서 만드는 방법
-Create -> Audio -> AudioMixer를 통해 Audio Group을 생성
+-믹서 만드는 방법   
+Create -> Audio -> AudioMixer를 통해 Audio Group을 생성   
 *최초 생성 시 Master 그룹이 존재함
+
+![캡처2](https://github.com/user-attachments/assets/637a780d-7106-4aee-a9e7-21b8ffad1fa1)
+
+
+
+
+<hr>
+### 유니티 레코더(Unity Recorder)
+유니티 내부에서 녹화하는 기능
+1. 설치
+  Package Manager -> Unity Registry -> Recorder
+
+2. 사용하기
+   Window -> General -> Recorder -> Recorder Window
+   |프로퍼티명|내용|
+   |:-------------|:-------------------------------|
+   |Exist Play Mode|체크되어 있으면 녹화 끝나면 플레이도 끝|
+   |Recording Mode|Manual(사용자 직접 녹화 설정 종료 가능. 주로 사용)|
+   |Playback|녹화 중 일정 프레임 속도 유지|
+   |TargetFPS|녹화 FPS지정|
+   |Cap|설정한 FPS를 넘지 않도록 제한|
 
