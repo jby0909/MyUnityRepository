@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Item">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAJAAAAAAAAAAEAAAAAAAAAAAAAgA=</HashCode>
+      <FileName>Assets\Scripts\Homework\Item.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LiquidMedicine">
+    <Position X="3" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAgAAAAAAAAAEAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Homework\Item.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="SpeedUpItem">
+    <Position X="5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgEAAAAAAAAAAAEAAE=</HashCode>
+      <FileName>Assets\Scripts\Homework\Item.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="IUse">
+    <Position X="8.25" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Assets\Scripts\Homework\Item.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="IPrintDescription">
+    <Position X="6.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>Assets\Scripts\Homework\Item.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="맑은 고딕" Size="9" />
+</ClassDiagram>

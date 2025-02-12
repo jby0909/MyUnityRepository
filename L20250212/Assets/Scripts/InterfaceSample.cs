@@ -19,7 +19,7 @@ public interface IUseAble
     void Use();
 }
 
-public class Item
+public class Item02
 {
 
 }
@@ -27,7 +27,7 @@ public class Item
 
 //인터페이스는 상속처럼 등록할 수 있음
 //인터페이스의 경우 다중 상속이 가능
-class Potion : Item, ICountAble, IUseAble
+class Potion : Item02, ICountAble, IUseAble
 {
     private int count;
     private string name;
