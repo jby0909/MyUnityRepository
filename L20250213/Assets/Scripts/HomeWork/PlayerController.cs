@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    int hp;
-    int money;
-    float exp;
+    int hp = 100;
+    int money = 0;
+    float exp = 0;
     int speed = 10;
     int itemCount = 0;
-    ScriptableObject quest;
+    Quest quest;
 
     void Start()
     {
@@ -47,6 +47,10 @@ public class PlayerController : MonoBehaviour
         else if(other.gameObject.tag == "npc")
         {
             // Äù½ºÆ® ¹ß»ý
+        }
+        else if(other.gameObject.tag == "monster")
+        {
+            hp -= 10;
         }
     }
 }
