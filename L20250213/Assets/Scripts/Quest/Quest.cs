@@ -35,8 +35,8 @@ public class Quest : ScriptableObject
 [CreateAssetMenu(fileName = "Requirement", menuName = "Quest/requirement")]
 public class Requirement : ScriptableObject
 {
-    public int 몬스터수;
-    public int 현재잡은몬스터수;
+    public int 황금공수;
+    public int 현재모은황금공수;
 }
 
 [Serializable]

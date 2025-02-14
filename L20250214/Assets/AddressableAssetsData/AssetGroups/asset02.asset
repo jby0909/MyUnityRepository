@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: asset02
+  m_EditorClassIdentifier: 
+  m_GroupName: asset02
+  m_GUID: 8181864338337aa40995345dfff3c15e
+  m_SerializeEntries:
+  - m_GUID: b8fc71f699c34e94ba2d90063615019c
+    m_Address: Assets/Prefabs/GreenSphere.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: b405312793581d042b4c3758189a3f34, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: a7ad5784a8bca3444825ede15dad18cb, type: 2}
+    - {fileID: 11400000, guid: 7c48a46b28759f340a2772dfd3424e86, type: 2}

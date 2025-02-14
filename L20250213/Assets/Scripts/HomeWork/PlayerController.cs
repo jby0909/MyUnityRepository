@@ -1,3 +1,4 @@
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -7,6 +8,8 @@ public class PlayerController : MonoBehaviour
     float exp;
     int speed = 10;
     int itemCount = 0;
+    ScriptableObject quest;
+
     void Start()
     {
         
@@ -40,6 +43,10 @@ public class PlayerController : MonoBehaviour
             itemCount++;
             Destroy(other.gameObject);
             Debug.Log(itemCount);
+        }
+        else if(other.gameObject.tag == "npc")
+        {
+            // Äù½ºÆ® ¹ß»ý
         }
     }
 }
