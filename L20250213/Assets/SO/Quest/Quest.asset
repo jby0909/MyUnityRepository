@@ -13,10 +13,11 @@ MonoBehaviour:
   m_Name: Quest
   m_EditorClassIdentifier: 
   "\uD018\uC2A4\uD2B8\uC720\uD615": 0
-  "\uBCF4\uC0C1": {fileID: 0}
-  "\uC694\uAD6C\uC870\uAC74": {fileID: 0}
+  "\uBCF4\uC0C1": {fileID: 11400000, guid: 63e2367265662b341b4e860466d00af3, type: 2}
+  "\uC694\uAD6C\uC870\uAC74": {fileID: 11400000, guid: 1af50491bec0af649a429634f1414474, type: 2}
   "\uC81C\uBAA9": "\uD669\uAE08\uACF5 \uBAA8\uC73C\uAE30"
   "\uBAA9\uD45C": "\uD669\uAE08\uACF5 10\uAC1C\uB97C \uBAA8\uC73C\uC138\uC694"
-  "\uC124\uBA85": 
-  "\uC131\uACF5": 0
+  "\uC124\uBA85": "\uC7A5\uC560\uBB3C\uC744 \uD53C\uD558\uBA74\uC11C \uD669\uAE08\uACF5
+    10\uAC1C\uB97C \uBAA8\uC73C\uC138\uC694."
+  "\uC131\uACF5": 1
   "\uC9C4\uD589\uC0C1\uD0DC": 0
