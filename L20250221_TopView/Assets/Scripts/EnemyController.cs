@@ -33,9 +33,12 @@ public class EnemyController : MonoBehaviour
             //몬스터가 활성화 상태일 때
             if (isActive)
             {
-                float dx = player.transform.position.x - transform.position.x;
-                float dy = player.transform.position.y - transform.position.y;
-                float radian = Mathf.Atan2(dy, dx);
+                //float dx = player.transform.position.x - transform.position.x;
+                //float dy = player.transform.position.y - transform.position.y;
+                //float radian = Mathf.Atan2(dy, dx);
+                //float degree = radian * Mathf.Rad2Deg;
+
+                float radian = Util.GetAngleFromTo(transform.position, player.transform.position);
                 float degree = radian * Mathf.Rad2Deg;
 
                 if (degree > -45.0f && degree <= 45.0f)

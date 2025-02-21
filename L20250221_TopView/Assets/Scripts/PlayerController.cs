@@ -181,15 +181,17 @@ public class PlayerController : MonoBehaviour
 
         if(h != 0 || v != 0)
         {
-            //from과 to의 차이를 계산
-            float dx = to.x - from.x;
-            float dy = to.y - from.y;
+            ////from과 to의 차이를 계산
+            //float dx = to.x - from.x;
+            //float dy = to.y - from.y;
 
-            float radian = Mathf.Atan2(dy, dx);
-            //Atan같은 경우는 x좌표가 0일 경우 계산이 안됨.(분모가 0이 되므로) -> 현실의 Atan값 그대로 가져오는 느낌
-            //Atan2는 내부적으로 계산처리를 해서 웬만하면 계산 가능
+            //float radian = Mathf.Atan2(dy, dx);
+            ////Atan같은 경우는 x좌표가 0일 경우 계산이 안됨.(분모가 0이 되므로) -> 현실의 Atan값 그대로 가져오는 느낌
+            ////Atan2는 내부적으로 계산처리를 해서 웬만하면 계산 가능
 
-            angle = radian * Mathf.Rad2Deg;
+            //angle = radian * Mathf.Rad2Deg;
+
+            angle = Util.GetAngleFromTo(from, to) * Mathf.Rad2Deg;
             
 
         }
@@ -199,4 +201,5 @@ public class PlayerController : MonoBehaviour
         }
         return angle;
     }
+
 }
