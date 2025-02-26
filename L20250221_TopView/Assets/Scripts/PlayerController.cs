@@ -5,7 +5,7 @@ using System;
 
 public class PlayerController : MonoBehaviour
 {
-    public static int hp = 3;
+    public static int hp = 5;
     public static string state; //플레이 상태
     bool inDamage = false; //데미지를 받는 상태인지 확인
 
@@ -116,16 +116,16 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.tag == "Enemy")
         {
-            GetDamage(collision.gameObject);
+            GetDamage(collision.gameObject, 1);
         }
     }
 
     //적으로부터 받는 데미지에 대한 공식
-    private void GetDamage(GameObject enemy)
+    public void GetDamage(GameObject enemy, int attack)
     {
         if(state == "playing")
         {
-            hp--;
+            hp -= attack;
             if(hp > 0)
             {
                 //이동 정지
