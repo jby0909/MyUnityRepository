@@ -16,6 +16,11 @@ public class Exit : MonoBehaviour
         if(collision.gameObject.tag == "Player")
         {
             RoomManager.ChangeScene(sceneName, doorNumber);
+            if(sceneName != "StartMap")
+            {
+                RoomManager.stageLevelcp++;
+            }
+            
         }
     }
 }

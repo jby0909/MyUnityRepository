@@ -49,6 +49,7 @@ public class ArrowShoot : MonoBehaviour
         if(ItemKeeper.hasArrows > 0 && inAttack == false)
         {
             ItemKeeper.hasArrows--; //화살 한 개 소모
+            UIManager.ArrowText.text = $"Arrow : {ItemKeeper.hasArrows}";
             inAttack = true; //공격 모드로 전환
 
             var player_controller = GetComponent<PlayerController>();

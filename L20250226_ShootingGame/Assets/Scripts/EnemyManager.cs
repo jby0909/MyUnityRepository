@@ -11,11 +11,31 @@ public class EnemyManager : MonoBehaviour
     //생성할 적
     public GameObject enemyFactory;
 
+
+    //오브젝트 풀 설정
+    public int poolSize = 10;
+    GameObject[] enemyObjectPool;
+
+    //생성 위치(배열)
+    public Transform[] spawnPoints;
+
+
+
+
     float min = 1, max = 5;
 
     private void Start()
     {
         createTime = Random.Range(min, max);
+
+        enemyObjectPool = new GameObject[poolSize];
+
+        for(int i = 0; i < poolSize; i++)
+        {
+            var enemy = Instantiate(enemyFactory);
+            enemyObjectPool[i] = enemy;
+            enemy.SetActive(false);
+        }
     }
     private void Update()
     {
@@ -25,8 +45,20 @@ public class EnemyManager : MonoBehaviour
         //   적을 생성
         if(currentTime >= createTime)
         {
-            GameObject enemy = Instantiate(enemyFactory);
-            enemy.transform.position = transform.position;
+            for (int i = 0; i < poolSize; i++)
+            {
+                var enemy = enemyObjectPool[i];
+                if(enemy.activeSelf == false)
+                {
+                    //랜덤 스폰
+                    int index = Random.Range(0, spawnPoints.Length);
+                    enemy.transform.position = spawnPoints[index].position;
+                    enemy.SetActive(true);
+                    break;
+                }
+                
+            }
+            
             //3. 소환 후 시간을 0으로 리셋
             currentTime = 0.0f;
             createTime = Random.Range(min, max);

@@ -6,17 +6,37 @@ public class RoomManager : MonoBehaviour
 {
 
     public static int doorNumber = 0; //·ë ¹øÈ£
+    //public int stageLevel;
+    public static int stageLevelcp = 0;
 
-    public static void ChangeScene(string sceneName, int door)
+    private static EnemyManager currentEnemyManager = null;
+    public static EnemyManager CurrentEnemyManager
+    {
+        get { return currentEnemyManager; }
+    }
+
+    public static void ChangeScene(string sceneName, int door = 0)
     {
         Debug.Log($"ÇöÀç door Number : {doorNumber} ");
         doorNumber = door;
+        currentEnemyManager = null;
         SceneManager.LoadScene(sceneName);
+        
+
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        currentEnemyManager = GameObject.FindFirstObjectByType<EnemyManager>();
+
+        if(currentEnemyManager != null)
+        {
+            currentEnemyManager.enemy_count = stageLevelcp * 2;
+            currentEnemyManager.SpawnMonsterStage();
+        }
+
+        BossController.isDead = false;
         GameObject[] enters = GameObject.FindGameObjectsWithTag("Exit");
 
         for(int i = 0; i < enters.Length; i++)
@@ -53,7 +73,7 @@ public class RoomManager : MonoBehaviour
                 break;
             }
         }
-    }
+        }
 
     
 }

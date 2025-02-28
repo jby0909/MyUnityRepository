@@ -199,3 +199,7 @@ MonoBehaviour:
   - EnemyRight
   - EnemyDead
   arrangeId: 0
+  itemPrefabs:
+  - {fileID: 4384417125114792356, guid: 0eeb4c4229a82ea4992ff92306bc53b5, type: 3}
+  - {fileID: 2335352714562168098, guid: 6d3ddd70fed5c104ea0ae940b7504ed2, type: 3}
+  - {fileID: 6925948921358313367, guid: 708bff4d6c044f7429d765ace28aefb4, type: 3}

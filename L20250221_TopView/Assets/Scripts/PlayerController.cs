@@ -2,10 +2,11 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using System;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    public static int hp = 5;
+    public static int hp = 10;
     public static string state; //플레이 상태
     bool inDamage = false; //데미지를 받는 상태인지 확인
 
@@ -25,12 +26,31 @@ public class PlayerController : MonoBehaviour
 
     bool isMove = false; //움직이는 상태인지 확인
 
+    public GameObject UIcanvas;
+
+    public GameObject slider;
+    static Slider hpBar;
+
+    public static void Initialize()
+    {
+        hp = 10;
+        ItemKeeper.hasArrows = 30;
+        ItemKeeper.hasKeys = 0;
+    }
+
     void Start()
     {
         state = "playing";
         rbody = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         previous = anime_list[0]; // 처음 시작은 아래를 보고 있도록 설정
+        UIManager.HPText.text = $"HP : {hp}";
+        UIManager.GoldText.text = $"Gold : {ItemKeeper.hasCoin}";
+        UIManager.ArrowText.text = $"Arrow : {ItemKeeper.hasArrows}";
+        UIManager.StageLevelText.text = $"Stage : {RoomManager.stageLevelcp}";
+        hpBar = slider.GetComponent<Slider>();
+        hpBar.value = hp;
+        hpBar.maxValue = 10;
     }
 
     
@@ -117,6 +137,12 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.tag == "Enemy")
         {
             GetDamage(collision.gameObject, 1);
+            
+        }
+        else if(collision.gameObject.tag == "Boss")
+        {
+            GetDamage(collision.gameObject, 2);
+            
         }
     }
 
@@ -126,7 +152,9 @@ public class PlayerController : MonoBehaviour
         if(state == "playing")
         {
             hp -= attack;
-            if(hp > 0)
+            UIManager.HPText.text = $"HP : {hp}";
+            SetHpBar();
+            if (hp > 0)
             {
                 //이동 정지
                 rbody.linearVelocity = new Vector2(0, 0);
@@ -144,10 +172,16 @@ public class PlayerController : MonoBehaviour
             }
             else
             {
+                hp = 0;
                 //체력이 0이 되면 게임 오버
                 GameOver();
             }
         }
+    }
+
+    public static void SetHpBar()
+    {
+        hpBar.value = hp;
     }
 
     private void OnDamageExit()
@@ -166,6 +200,16 @@ public class PlayerController : MonoBehaviour
         rbody.AddForce(new Vector2(0, 5), ForceMode2D.Impulse);
         GetComponent<Animator>().Play(anime_list[4]);
         Destroy(gameObject, 1.0f);
+        OnGameOverUI();
+
+
+    }
+
+    //gameover UI 켜기 -> 게임매니저같은데서 관리해야하지만 일단 플레이어컨트롤러에서 구현
+    public void OnGameOverUI()
+    {
+        GameObject gameOverUI = UIcanvas.transform.Find("GameOver").gameObject;
+        gameOverUI.SetActive(true);
     }
 
 

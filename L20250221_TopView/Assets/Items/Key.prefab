@@ -165,6 +165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 582381f6f88691e47840fc9afd4fbafa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  type: 0
-  count: 1
+  type: 1
+  arrow_count: 5
+  key_count: 1
+  coin_count: 1000
   arrangeId: 0

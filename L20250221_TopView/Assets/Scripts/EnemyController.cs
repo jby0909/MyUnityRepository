@@ -3,9 +3,9 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    public int hp = 3;
+    public int hp;
     public float speed = 0.5f;
-    public float pattern_distance = 4.0f; //반응을 보일 거리
+    public float pattern_distance = 10.0f; //반응을 보일 거리
     public List<string> anime_list = new List<string> { "EnemyIdle","EnemyDown", "EnemyUp", "EnemyLeft", "EnemyRight", "EnemyDead" };
 
     string current = "";
@@ -15,10 +15,13 @@ public class EnemyController : MonoBehaviour
     bool isActive = false;
     public int arrangeId = 0; // 식별 값
 
+    public GameObject[] itemPrefabs;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
+        hp = RoomManager.stageLevelcp;
     }
 
     // Update is called once per frame
@@ -107,6 +110,8 @@ public class EnemyController : MonoBehaviour
 
             if(hp <= 0)
             {
+                //현재 적의 숫자 줄이기
+                RoomManager.CurrentEnemyManager.enemy_count--;
                 //더이상의 충돌이 발생하지 않음
                 GetComponent<CircleCollider2D>().enabled = false;
 
@@ -117,9 +122,16 @@ public class EnemyController : MonoBehaviour
                 var animator = GetComponent<Animator>();
                 animator.Play(anime_list[5]);
 
-                //오브젝트 파괴
-                Destroy(gameObject, 0.5f);
+                //오브젝트 파괴 -> SetActive(false)로 수정
+                Invoke("DeadEnemy", 0.5f);
+
+                Instantiate(itemPrefabs[Random.Range(0, itemPrefabs.Length)], transform.position, Quaternion.identity);
             }
         }
+    }
+
+    private void DeadEnemy()
+    {
+        gameObject.SetActive(false);
     }
 }

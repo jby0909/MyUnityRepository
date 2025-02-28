@@ -10,6 +10,7 @@ TagManager:
   - Item
   - Box
   - Enemy
+  - Boss
   layers:
   - Default
   - TransparentFX
